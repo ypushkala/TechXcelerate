@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Demographic and Medical Information</h1>
+    <form action="/predict" method="POST">
+        <h2>Demographic Details</h2>
+        Age: <input type="number" name="age" required><br>
+        Gender: 
+        <select name="gender" required>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+        </select><br>
+        Ethnicity: 
+        <select name="ethnicity" required>
+            <option value="0">Caucasian</option>
+            <option value="1">African American</option>
+            <option value="2">Asian</option>
+            <option value="3">Other</option>
+        </select><br>
+        Education Level: <input type="number" name="education_level" required><br>
+        
+        <h2>Lifestyle Factors</h2>
+        BMI: <input type="number" name="bmi" step="0.1" required><br>
+        Smoking: 
+        <select name="smoking" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Alcohol Consumption (weekly): <input type="number" name="alcohol_consumption" step="0.1" required><br>
+        Physical Activity (weekly hours): <input type="number" name="physical_activity" step="0.1" required><br>
+        Diet Quality: <input type="number" name="diet_quality" required><br>
+        Sleep Quality: <input type="number" name="sleep_quality" required><br>
+
+        <h2>Medical History</h2>
+        Family History of Alzheimer's: 
+        <select name="family_history" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Cardiovascular Disease: 
+        <select name="cardiovascular_disease" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Diabetes: 
+        <select name="diabetes" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Depression: 
+        <select name="depression" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Head Injury: 
+        <select name="head_injury" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Hypertension: 
+        <select name="hypertension" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+
+        <h2>Clinical Measurements</h2>
+        Systolic BP: <input type="number" name="systolic_bp" required><br>
+        Diastolic BP: <input type="number" name="diastolic_bp" required><br>
+        Cholesterol Total: <input type="number" name="cholesterol_total" required><br>
+        Cholesterol LDL: <input type="number" name="cholesterol_ldl" required><br>
+        Cholesterol HDL: <input type="number" name="cholesterol_hdl" required><br>
+        Cholesterol Triglycerides: <input type="number" name="cholesterol_triglycerides" required><br>
+
+        <h2>Cognitive & Functional Assessments</h2>
+        MMSE: <input type="number" name="mmse" required><br>
+        Functional Assessment: <input type="number" name="functional_assessment" required><br>
+        Memory Complaints: 
+        <select name="memory_complaints" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Behavioral Problems: 
+        <select name="behavioral_problems" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        ADL: <input type="number" name="adl" required><br>
+
+        <h2>Symptoms</h2>
+        Confusion: 
+        <select name="confusion" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Disorientation: 
+        <select name="disorientation" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Personality Changes: 
+        <select name="personality_changes" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Difficulty Completing Tasks: 
+        <select name="difficulty_completing_tasks" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+        Forgetfulness: 
+        <select name="forgetfulness" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
