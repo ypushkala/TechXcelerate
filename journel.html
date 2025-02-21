@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Plan and Goals</title>
+    <style>
+        :root {
+            --primary: #6B46C1;
+            --primary-light: #EDE9FE;
+            --text: #1F2937;
+            --text-light: #6B7280;
+            --white: #FFFFFF;
+            --success: #059669;
+            --warning: #D97706;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #F9FAFB;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #E5E7EB;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        button {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: #5735AE;
+        }
+
+        .progress-bar {
+            background: var(--primary-light);
+            height: 20px;
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            background: var(--primary);
+            height: 100%;
+            width: 75%;
+        }
+
+        .reminder-list {
+            list-style: none;
+        }
+
+        .reminder-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .reminder-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-box {
+            background: #D1FAE5;
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .example-care-plan {
+            background: var(--primary-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="section-header">
+        <h1>Care Plan and Goals</h1>
+        <p>Personalized care planning and goal tracking for Alzheimer's patients.</p>
+    </div>
+
+    <div class="container">
+        <div class="example-care-plan">
+            My dad is 72 and has early-stage Alzheimer's. We've established a daily routine to keep him active and engaged, including morning walks, light stretching, and memory games like puzzles and card play. He enjoys video calls with family and friends weekly. I involve him in cooking and ensure he has a brain-healthy diet. We wind down with calming activities like reading and meditation, and I monitor his mood and medication diligently.
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Care Plan</h2>
+                <div class="info-box">
+                    Document daily care routines, medication schedules, and special instructions.
+                </div>
+                <div class="form-group">
+                    <label for="care-plan-input">Personalized Care Plan</label>
+                    <textarea id="care-plan-input" rows="6" placeholder="Enter detailed care plan..."></textarea>
+                </div>
+                <button>Save Care Plan</button>
+            </div>
+
+            <div class="card">
+                <h2>Goals</h2>
+                <div class="form-group">
+                    <label for="goal-select">Select Goal</label>
+                    <select id="goal-select">
+                        <option value="">Choose a goal</option>
+                        <option value="walk">Take a Daily Walk</option>
+                        <option value="brain-games">Engage in 10-Minute Brain Games</option>
+                        <option value="snack">Eat a Healthy Snack Twice a Day</option>
+                        <option value="breathing">Practice Deep Breathing for 5 Minutes</option>
+                        <option value="social">Spend 15 Minutes with a Loved One</option>
+                        <option value="reading">Read for 20 Minutes</option>
+                        <option value="chores">Do Simple Household Chores</option>
+                        <option value="conversation">Have a Daily Conversation</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="custom-goal">Custom Goal</label>
+                    <input type="text" id="custom-goal" placeholder="Enter custom goal">
+                </div>
+                <div class="form-group">
+                    <label for="goal-status">Goal Status</label>
+                    <select id="goal-status">
+                        <option value="not-started">Not Started</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="achieved">Achieved</option>
+                    </select>
+                </div>
+                <button>Set Goal</button>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Progress Tracker</h2>
+                <div class="success-box">
+                    Track and monitor progress on care goals over time.
+                </div>
+                <div class="form-group">
+                    <label>Overall Progress</label>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="milestone-notes">Milestone Notes</label>
+                    <textarea id="milestone-notes" rows="4" placeholder="Enter notes about progress..."></textarea>
+                </div>
+                <button>Save Progress</button>
+            </div>
+
+            <div class="card">
+                <h2>Reminders</h2>
+                <div class="form-group">
+                    <label for="reminder-text">New Reminder</label>
+                    <input type="text" id="reminder-text" placeholder="Enter reminder">
+                </div>
+                <button>Add Reminder</button>
+                <ul class="reminder-list">
+                    <li class="reminder-item">
+                        <span>Take medication - 9:00 AM</span>
+                        <button>Complete</button>
+                    </li>
+                    <li class="reminder-item">
+                        <span>Doctor's appointment - 2:00 PM</span>
+                        <button>Complete</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 PatientCare. All rights reserved. | <a href="#">Contact Us</a></p>
+    </footer>
+</body>
+</html>
