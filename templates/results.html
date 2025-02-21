@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+
+        {% if prediction == 0 %}
+            <p class="prediction-text">The model predicts that the individual is <strong>unlikely</strong> to have Alzheimer's disease.</p>
+        {% elif prediction == 1 %}
+            <p class="prediction-text">The model predicts that the individual is <strong>likely</strong> to have Alzheimer's disease.</p>
+        {% else %}
+            <p class="prediction-text">There was an issue with the prediction result. Please try again.</p>
+        {% endif %}
+
+        <br>
+        <a href="/" class="back-link">Go back</a>
+    </div>
+</body>
+</html>
